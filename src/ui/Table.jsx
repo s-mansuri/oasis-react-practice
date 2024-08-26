@@ -91,7 +91,7 @@ const Body = ({ data, render }) => {
   return <StyledBody>{data.map(render)}</StyledBody>;
 };
 const Footer = ({ children }) => {
-  return <StyledFooter>by Weblanch Technologies</StyledFooter>;
+  return <StyledFooter>{children}</StyledFooter>;
 };
 
 Table.Header = Header;
