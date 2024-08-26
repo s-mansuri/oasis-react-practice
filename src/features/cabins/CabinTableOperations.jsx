@@ -4,6 +4,7 @@ import Filter from '../../ui/Filter';
 import SortBy from '../../ui/SortBy';
 
 const CabinTableOperations = () => {
+  console.log('CHeck');
   return (
     <div>
       <TableOperations>
