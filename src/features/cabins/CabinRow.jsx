@@ -8,6 +8,7 @@ import Modal from '../../ui/Modal';
 import ConfirmDelete from '../../ui/ConfirmDelete';
 import Table from '../../ui/Table';
 import Menus from '../../ui/Menus';
+import { formatCurrency } from '../../utils/helpers';
 
 // const TableRow = styled.div`
 //   display: grid;
@@ -77,8 +78,12 @@ const CabinRow = ({ cabin }) => {
       <Img src={image} />
       <Cabin>{name}</Cabin>
       <div>{`fits up to ${maxCapacity} guests`}</div>
-      <Price>₹{regularPrice}</Price>
-      {discount ? <Discount>{discount}</Discount> : <span>&mdash;</span>}
+      <Price>{formatCurrency(regularPrice)}</Price>
+      {discount ? (
+        <Discount>{formatCurrency(discount)}</Discount>
+      ) : (
+        <span>&mdash;</span>
+      )}
       <div>
         <Modal>
           <Menus.Menu>

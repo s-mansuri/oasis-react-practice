@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import Table from '../../ui/Table';
 import Menus from '../../ui/Menus';
 import { useSearchParams } from 'react-router-dom';
+import Empty from '../../ui/Empty';
 
 const StyledTable = styled.div`
   border: 1px solid var(--color-grey-200);
@@ -52,6 +53,8 @@ const CabinTable = () => {
   const sortedCabins = filteredCabins.sort(
     (a, b) => (a[field] - b[field]) * modifier
   );
+
+  if (!cabins.length) return <Empty resourceName='cabins' />;
 
   return (
     <Menus>
