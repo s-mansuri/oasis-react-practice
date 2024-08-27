@@ -1,5 +1,10 @@
 import styled from 'styled-components';
 
+import React from 'react';
+import { HiChevronLeft, HiChevronRight } from 'react-icons/hi2';
+import { useSearchParams } from 'react-router-dom';
+import { PAGE_SIZE } from '../utils/constants';
+
 const StyledPagination = styled.div`
   width: 100%;
   display: flex;
@@ -55,11 +60,6 @@ const PaginationButton = styled.button`
     color: var(--color-brand-50);
   }
 `;
-
-import React from 'react';
-import { HiChevronLeft, HiChevronRight } from 'react-icons/hi2';
-import { useSearchParams } from 'react-router-dom';
-import { PAGE_SIZE } from '../utils/constants';
 
 const Pagination = ({ count }) => {
   const [searchParams, setSearchParams] = useSearchParams();
