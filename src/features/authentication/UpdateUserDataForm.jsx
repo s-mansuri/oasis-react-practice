@@ -18,7 +18,7 @@ function UpdateUserDataForm() {
     },
   } = useUser();
 
-  const { udpateUser, isUpdating } = useUpdateUser();
+  const { updateUser, isUpdating } = useUpdateUser();
 
   const [fullName, setFullName] = useState(currentFullName);
   const [avatar, setAvatar] = useState(null);
@@ -26,7 +26,7 @@ function UpdateUserDataForm() {
   function handleSubmit(e) {
     e.preventDefault();
     if (!fullName) return;
-    udpateUser(
+    updateUser(
       { fullName, avatar },
       {
         onSuccess: () => {

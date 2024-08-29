@@ -1,4 +1,4 @@
-// import { getToday } from '../utils/helpers';
+import { getToday } from '../utils/helpers';
 import supabase from '../services/supabse';
 import { PAGE_SIZE } from '../utils/constants';
 
@@ -55,9 +55,9 @@ export async function getBooking(id) {
 export async function getBookingsAfterDate(date) {
   const { data, error } = await supabase
     .from('bookings')
-    .select('created_at, totalPrice, extrasPrice')
-    .gte('created_at', date);
-  // .lte('created_at', getToday({ end: true }));
+    .select('created_at, totalPrice, extraPrice')
+    .gte('created_at', date)
+    .lte('created_at', getToday({ end: true }));
 
   if (error) {
     console.error(error);
@@ -71,7 +71,6 @@ export async function getBookingsAfterDate(date) {
 export async function getStaysAfterDate(date) {
   const { data, error } = await supabase
     .from('bookings')
-    // .select('*')
     .select('*, guests(fullName)')
     .gte('startDate', date)
     .lte('startDate', getToday());
